@@ -1,0 +1,5 @@
+name: Code.v.igoro.us
+markdown: redcarpet
+pygments: true
+exclude: [ sandbox, .git ]
+permalink: /posts/:year/:month/:title.html
