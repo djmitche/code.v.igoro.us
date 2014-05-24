@@ -1,4 +1,4 @@
-name: Code.v.igoro.us
+name: Code Vigorous
 markdown: redcarpet
 pygments: true
 exclude: [ sandbox, .git ]
