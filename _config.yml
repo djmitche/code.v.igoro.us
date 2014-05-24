@@ -3,3 +3,10 @@ markdown: redcarpet
 pygments: true
 exclude: [ sandbox, .git ]
 permalink: /posts/:year/:month/:title.html
+urls:
+    - text: github
+      url: https://github.com/djmitche
+    - text: mozillians
+      url: https://mozillians.org/en-US/u/dustin/
+    - text: email
+      url: mailto:dustin@cs.uchicago.edu
