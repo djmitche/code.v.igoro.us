@@ -9,5 +9,5 @@ I'll be giving a [presentation](http://pumpingstationone.org/2010/03/psone-prese
 
 *   8pm (doors at 7) at 3354 N Elston
 *   Advance copy of the [Presentation](http://djmitche.github.com/twisted-intro/)
-*   Video (available after the talk is complete)</div></div><div style="clear: both;"></div><div class="entry">
+*   Video (available after the talk is complete)
 

@@ -10,7 +10,7 @@ This is the first in what will be a series of posts about recent work on [Amanda
 series will help to illustrate some of the new features we've completed,
  and what's coming up.  I'll be cross-posting these on [the Zmanda Team Blog](http://www.zmanda.com/blogs/) too.
 
-<div xml:base="http://code.v.igoro.us/rss.php?version=2.0&all=1">![](/img/chart.png)</div>
+![Chart](/img/chart.png)
 
 Among
  open-source applications, Amanda is known for being stable and highly

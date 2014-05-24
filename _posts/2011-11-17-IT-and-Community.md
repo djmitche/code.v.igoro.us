@@ -45,5 +45,5 @@ It's a bit short right now.  There are a few things that may help:
 
 *   We can identify a means of giving limited or sandboxed access to a new volunteer.
 
-*   Consumers of Mozilla's IT resources can begin tagging bugs,where Mozilla can provide the resources and volunteers can do the heavylifting - got any ideas?</div></div><div style="clear: both;"></div><div class="entry">
+*   Consumers of Mozilla's IT resources can begin tagging bugs,where Mozilla can provide the resources and volunteers can do the heavylifting - got any ideas?
 

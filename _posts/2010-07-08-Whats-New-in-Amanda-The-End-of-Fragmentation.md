@@ -122,5 +122,5 @@ advice and assistance is welcome!
 
 *   <sup>1</sup>This is an ages-old design decision, but one that artificially constrains Amanda's flexibility, especially with vtapes.
 *   <sup>2</sup>In fact, Amanda has supported spanning forsomething like 7 years now.  Yet I occasionally see users in #amandacomplaining about this serious limitation and wondering when we're going
- to do anything about it.  Will 2003 be soon enough?</div></div><div style="clear: both;"></div><div class="entry">
+ to do anything about it.  Will 2003 be soon enough?
 

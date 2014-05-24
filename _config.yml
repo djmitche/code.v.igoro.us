@@ -3,6 +3,7 @@ markdown: redcarpet
 pygments: true
 exclude: [ sandbox, .git ]
 permalink: /posts/:year/:month/:title.html
+about: Dustin J. Mitchell
 urls:
     - text: github
       url: https://github.com/djmitche
