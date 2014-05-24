@@ -56,4 +56,4 @@ name that is stable from one SSH connection to the next.
     # session; otherwise start up a new one
     screen -R -DD ${@} || screen
 
-_[update: re-syndicated with new blog software]
+_[update: re-syndicated with new blog software]_
