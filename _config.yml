@@ -4,7 +4,7 @@ markdown: redcarpet
 pygments: true
 author: Dustin J. Mitchell
 about: Dustin J. Mitchell
-exclude: [ sandbox, .git ]
+exclude: [ sandbox, .git, conversion ]
 permalink: /posts/:year/:month/:title.html
 urls:
     - text: github
