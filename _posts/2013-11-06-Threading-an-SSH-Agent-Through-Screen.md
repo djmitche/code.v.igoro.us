@@ -1,7 +1,8 @@
 ---
 layout: post
 title:  "Threading an SSH Agent Through Screen"
-date:   2013-11-06 12:13:00
+date:   2014-05-23 22:11:00
+categories: [mozilla]
 ---
 
 
@@ -54,3 +55,5 @@ name that is stable from one SSH connection to the next.
     # finally, fire up screen.  Try reattaching to a running
     # session; otherwise start up a new one
     screen -R -DD ${@} || screen
+
+_[update: re-syndicated with new blog software]
