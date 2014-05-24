@@ -7,11 +7,19 @@ body {
     color: #424242;
 }
 
-@media (min-width: 768px) {
-  .container {
-    max-width: 730px;
-  }
-}
+//@media (min-width: 768px) {
+  //.container {
+    //max-width: 730px;
+  //}
+//}
+
+//@media (min-width: 806px) {
+  //.container {
+    //max-width: 768px;
+    //background: orange;
+  //}
+//}
+
 /**
  * //////////////////////////
  * Font and link declarations
