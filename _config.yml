@@ -1,9 +1,11 @@
 name: Code Vigorous
+url: http://code.v.igoro.us
 markdown: redcarpet
 pygments: true
+author: Dustin J. Mitchell
+about: Dustin J. Mitchell
 exclude: [ sandbox, .git ]
 permalink: /posts/:year/:month/:title.html
-about: Dustin J. Mitchell
 urls:
     - text: github
       url: https://github.com/djmitche
