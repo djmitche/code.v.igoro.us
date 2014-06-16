@@ -5,7 +5,7 @@ date:   2014-06-16 12:00:00
 categories: [mozilla,code]
 ---
 
-# Data! #`
+# Data! #
 
 Mozilla's Release Engineering group provides a lot of information and services to the rest of the organization.
 To name just a few instances:
