@@ -9,6 +9,7 @@ categories: [mozilla,code]
 
 Mozilla's Release Engineering group provides a lot of information and services to the rest of the organization.
 To name just a few instances:
+
 * If you want certain kinds of information about builds, you can consult the [BuildAPI](https://secure.pub.build.mozilla.org/buildapi/).
 * For others, there are frequently-generated JSON files in [builddata](https://secure.pub.build.mozilla.org/builddata/).
 * Events within the build system are transmitted via [Pulse](http://pulse.mozilla.org/).
