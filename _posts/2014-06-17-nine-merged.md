@@ -37,6 +37,7 @@ Several important things have changed:
 
 * Buildbot now requires Python-2.6 on the master.
 * You must install a third package, [`buildbot-www`](https://pypi.python.org/pypi/buildbot-www), to run the master.
+  If you see "could not find buildbot-www; is it installed?", this is why!
 * You'll need to make some configuration changes - see [the development release notes](https://github.com/buildbot/buildbot/blob/master/master/docs/relnotes/index.rst)
 
 See [Running Buildbot with VirtualEnv](http://trac.buildbot.net/wiki/RunningBuildbotWithVirtualEnv) for a guide to running Buildbot in a testing environment.
