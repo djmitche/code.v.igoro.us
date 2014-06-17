@@ -1,4 +1,5 @@
 name: Code Vigorous
+port: 8010
 url: http://code.v.igoro.us
 markdown: redcarpet
 pygments: true
