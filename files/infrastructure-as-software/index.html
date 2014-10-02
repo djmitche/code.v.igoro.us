@@ -1,0 +1,750 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Infrastructure as Software</title>
+
+		<meta name="description" content="Infrastructure as Softwre">
+		<meta name="author" content="Dustin J. Mitchell">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/beige-ben.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+        <style>
+            section pre code.small {
+                font-size: 70%;
+                line-height: 1;
+            }
+        </style>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal ff">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+                <section>
+                    <div>
+                        <h2>Infrastructure as Software</h2>
+                        <div style="text-align: right;" class="byline">
+                            Dustin J. Mitchell<br />
+                            dustin@mozilla.com<br />
+                            Sept 24, 2014
+                        </div>
+                    </div>
+                </section>
+
+                <section class="shout">
+                    <div>
+                        <h2>Code</h2>
+                    </div>
+                </section>
+
+                <section class="eyes">
+                    <div>
+                        <h2>Code = Snippet</h2>
+                        <pre>
+                            <code data-trim class="small">
+var width=150; // width of the eyes in pixels
+var colour="#06f"; // colour of the eye - bluey green in this case
+var iris="#000"; //   colour of the iris (normally black);
+/***************************\
+*   Moving Eyeballs Effect  *
+*(c)2012-3 mf2fm web-design *
+*  http://www.mf2fm.com/rv  *
+* DON'T EDIT BELOW THIS BOX *
+\***************************/
+var swide=800;
+function addLoadEvent(funky) {
+  var oldonload=window.onload;
+  if (typeof(oldonload)!='function') window.onload=funky;
+  else window.onload=function() {
+...
+                            </code>
+                        </pre>
+                    </div>
+                </section>
+
+                <section>
+                    <div>
+                        <h2>Code = Snippet</h2>
+                        <pre>
+                            <code data-trim class="small">
+# == Class: baseconfig
+#
+# Performs initial configuration tasks for all Vagrant boxes.
+#
+class baseconfig {
+    exec { 'apt-get update':
+        command =&gt; '/usr/bin/apt-get update';
+    }
+
+    host { 'hostmachine':
+        ip =&gt; '192.168.0.1';
+    }
+
+    file {
+        '/home/vagrant/.bashrc':
+        owner =&gt; 'vagrant',
+        group =&gt; 'vagrant',
+        mode  =&gt; '0644',
+        source =&gt; 'puppet:///modules/baseconfig/bashrc';
+    }
+}
+                            </code>
+                        </pre>
+                    </div>
+                </section>
+
+                <section>
+                    <div>
+                        <h2>Code = Script</h2>
+                        <pre>
+                            <code data-trim class="small">
+#! /usr/bin/env python
+
+class RequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
+
+    def do_POST(self):
+        content_length = int(self.headers['content-length'])
+        data = self.rfile.read(content_length)
+        self.send_response(200)
+        self.end_headers()
+        self.wfile.write("accepted.\n")
+        self.wfile.close()
+        now = int(time.time())
+        filename = os.path.join(REPORT_DIR, "report-%s.yaml" % (now,))
+        fd = os.open(filename, os.O_EXCL|os.O_CREAT|os.O_WRONLY)
+        os.fdopen(fd, "w").write(data)
+
+def main():
+    logging.basicConfig(format="%(asctime)s %(message)s", level=logging.DEBUG)
+    SocketServer.TCPServer.allow_reuse_address = True
+    httpd = SocketServer.TCPServer(("", PORT), RequestHandler)
+    httpd.serve_forever()
+
+main()
+                            </code>
+                        </pre>
+                    </div>
+                </section>
+
+                <section>
+                    <blockquote>My friend Clift Norris has identified a fundamental constant that I call Norris’ number, the average amount of code an untrained programmer can write before he or she hits a wall. Clift estimates this as 1,500 lines. Beyond that the code becomes so tangled that the author cannot debug or modify it without herculean effort.</blockquote> -- <a href="http://www.johndcook.com/blog/2011/11/22/norris-number/">John D. Cook</a>
+                    <aside class="notes">
+                        So this is the boundary where we get to software.
+                    </aside>
+                </section>
+
+                <section class="shout">
+                    <div>
+                        <h2>Software in Puppet?</h2>
+                        <span class="fragment">Let me tell you a story..</span>
+                    </div>
+                    <aside class="notes">
+                        Puppet-4.0 is a much more grown-up language
+                    </aside>
+                </section>
+
+                <section>
+                    <div>
+                        <div style="float: right">tinyurl.com/puppetagain</div>
+                        <h2>Meet PuppetAgain</h2>
+                        <ul>
+                            <li>Open Source</li>
+                            <li>Written in Puppet</li>
+                            <li>Cross-Platform</li>
+                            <li>Highly Available</li>
+                            <li>Secure</li>
+                            <li>Designed to Manage Job-Runners</li>
+                        </ul>
+                    </div>
+                    <aside class="notes">
+                        Mention Liz Joseph's talk
+                    </aside>
+                </section>
+
+                <!-- CHORUS -->
+                <section>
+                    <section>
+                        <div>
+                            <h2>Software</h2>
+                            <ul>
+                                <li><em>Architectural models</em></li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <div>
+                            <h2>OpenStack Architecture</h2>
+                            <img src="images/openstack.jpg" />
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>Approachability</h2>
+                        <p>If I change this, what will happen?</p>
+                        <p>Where should I start reading code?</p>
+                    </section>
+
+                    <section>
+                        <div>
+                            <h2>PuppetAgain: Toplevel</h2>
+                            <pre style="padding-top: -2em;"><code data-trim>
+class toplevel::base {
+    include users::root
+}
+class toplevel::server inherits toplevel::base {
+    include puppet::periodic
+    include cron
+}
+class toplevel::server::mozpool inherits toplevel::server {
+    include bmm
+    include mozpool
+}
+                            </code></pre>
+                        </div>
+                    </section>
+
+                    <section>
+                        <div>
+                            <h2>PuppetAgain: Toplevel</h2>
+                            <pre style="padding-top: -2em;"><code data-trim>
+node "mobile-imaging1.p1.releng.scl3.mozilla.com" {
+    include toplevel::server::mozpool
+}
+                            </code></pre>
+                        </div>
+                    </section>
+
+                    <section>
+                        <div>
+                            <h2>PuppetAgain: Configuration</h2>
+                            <pre style="padding-top: -2em;"><code data-trim>
+# modules/config/manifests/base.pp
+class config::base {
+    $ntp_server = ''
+}
+# manifests/moco-config.pp
+class config inherits config::base {
+    $ntp_server = 'time.mozilla.org'
+}
+                            </code></pre>
+                        </div>
+                    </section>
+
+                    <section>
+                        <div>
+                            <h2>PuppetAgain: Configuration</h2>
+                            <pre><code data-trim>
+class ntp::config {
+    include ::config
+    if ($::config::ntp_server) {
+        ..
+    }
+}
+                            </code></pre>
+                        </div>
+                    </section>
+                </section>
+
+
+                <!-- CHORUS -->
+                <section>
+                    <section>
+                        <div>
+                            <h2>Software</h2>
+                            <ul>
+                                <li>Architectural models</li>
+                                <li><em>Controlled Interdependencies</em></li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <div>
+                            <h2>Apache: Modules</h2>
+                            <img src="images/apache-modules.png" />
+                        </div>
+                    </section>
+
+                    <section>
+                        <div>
+                            <h2>PuppetAgain: Dirs</h2>
+                            <pre><code data-trim>
+class dirs::builds {
+    file { "/builds": ensure =&gt; directory; }
+}
+class dirs::builds::slave {
+    include dirs::builds
+    file { "/builds/slave": ensure =&gt; directory; }
+}
+                            </code></pre>
+                        </div>
+                    </section>
+
+                    <section>
+                        <div>
+                            <h2>PuppetAgain: Dirs</h2>
+                            <pre><code data-trim>
+class talos {
+    include dirs::builds::slave
+    file {
+        "/builds/slave/talos-slave":
+            ensure =&gt; directory;
+    }
+}
+                            </code></pre>
+                        </div>
+                    </section>
+                </section>
+
+                <!-- CHORUS -->
+                <section>
+                    <section>
+                        <div>
+                            <h2>Software</h2>
+                            <ul>
+                                <li>Architectural models</li>
+                                <li>Controlled Interdependencies</li>
+                                <li><em>Organizing Principles</em></li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <div>
+                            <h2>PA: Principle of Least Surprise</h2>
+                            <pre>
+                                <code data-trim>
+include mig_agent::install
+                                </code>
+                            </pre>
+                            <span class="fragment">.. installs mig-agent</span>
+                            <span class="fragment">.. or dies trying</span>
+                        </div>
+                        <aside class="notes">
+                            Henrik mentioned this yesterday
+                        </aside>
+                    </section>
+
+                    <section>
+                        <div>
+                            <h2>PA: Principle of Least Surprise</h2>
+                            <pre><code data-trim>
+class mig_agent::install {
+    case $operatingsystem {
+        CentOS: { .. }
+        default: {
+            fail("Cannot install on $operatingsystem")
+        }
+    }
+}
+                            </code></pre>
+                        </div>
+                    </section>
+                </section>
+
+                <!-- CHORUS -->
+                <section>
+                    <section>
+                        <div>
+                            <h2>Software</h2>
+                            <ul>
+                                <li>Architectural models</li>
+                                <li>Controlled Interdependencies</li>
+                                <li>Organizing Principles</li>
+                                <li><em>Abstractions</em></li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <div>
+                            <h2>Puppet: Packages</h2>
+                            <pre><code data-trim>
+package {
+    'httpd':
+        ensure =&gt; '2.2.15';
+}
+                            </code></pre>
+                        Write once, run everywhere, right?
+                        </div>
+                    </section>
+
+                    <section>
+                        <div>
+                            <h2>PuppetAgain: Packages</h2>
+                            <pre><code data-trim>include packages::httpd</code></pre>
+                        </div>
+                    </section>
+
+                    <section>
+                        <div>
+                            <h2>PuppetAgain: Packages</h2>
+                            <pre><code data-trim>
+class packages::httpd {
+    case $::operatingsystem {
+        CentOS: {
+            package { "httpd": ensure =&gt; latest; }   
+        }   
+        Ubuntu: {
+            package { "apache2": ensure =&gt; latest; }   
+        }   
+        Darwin: {
+            # installed by default
+        }   
+        default: {
+            fail("cannot install on $::operatingsystem")
+        }   
+    }   
+}
+                            </code></pre>
+                        </div>
+                    </section>
+                </section>
+
+                <section class="shout">
+                    <div>
+                        <h2>Writing Software<br />is Hard</h2>
+                    </div>
+                </section>
+
+                <!-- CHORUS2 -->
+                <section>
+                    <section>
+                        <div>
+                            <h2>Challenges</h2>
+                            <ul>
+                                <li><em>Package repositories are part of the code</em></li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <div>
+                            <h2>Repositories:</h2>
+                            <h3>Pinning is Hard</h3>
+                            <ul>
+                                <li class="fragment">Un-specified prerequisite packages aren't pinned</li>
+                                <li class="fragment">Can confuse package managers</li>
+                                <li class="fragment">Modifying the repo makes production changes</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <div>
+                            <h2>Repositories:</h2>
+                            <h3>Mirroring is Hard</h3>
+                            <blockquote>Can we update mirrors now?</blockquote>
+                            <blockquote>No.</blockquote>
+                        </div>
+                    </section>
+
+                    <section>
+                        <div>
+                            <h2>Repositories:</h2>
+                            <h3>Sharing is Hard</h3>
+                        </div>
+                    </section>
+
+                    <section>
+                        <div>
+                            <h2>Repositories:</h2>
+                            <h3>They're Huge</h3>
+                            <pre><code data-trim>
+[root@releng-puppet2.srv.releng.scl3.mozilla.com dmitchell]# df -h /data
+Filesystem            Size  Used Avail Use% Mounted on
+/dev/mapper/vg_relengpuppet2-lv_data
+                      414G  315G   78G  81% /data
+                            </code></pre>
+                        </div>
+                    </section>
+                </section>
+
+                <!-- CHORUS2 -->
+                <section>
+                    <section>
+                        <div>
+                            <h2>Challenges</h2>
+                            <ul>
+                                <li>Package repositories are part of the code</li>
+                                <li><em>Interactions are hard to model</em></li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <div>
+                            <h2>Module Interactions</h2>
+                            <ul>
+                                <li>'httpd' module installs Apache</li>
+                                <li>'rsyslog' module installs rsyslog</li>
+                                <li>When <em>both</em> are installed, we want to send access logs to rsyslog</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <div>
+                            <h2>Module Interactions</h2>
+                            <pre><code data-trim>
+class httpd::logging {
+    include rsyslog::config_dir
+    file {
+        "${rsyslog::config_dir::dir}/httpd.conf":
+            content =&gt; template("${module_name}/rsyslogd_httpd.conf.erb");
+    }
+}
+                            </code></pre>
+                            Httpd has to know about rsyslog?
+                        </div>
+                    </section>
+                </section>
+
+                <!-- CHORUS2 -->
+                <section>
+                    <div>
+                        <h2>Challenges</h2>
+                        <ul>
+                            <li>Package repositories are part of the code</li>
+                            <li>Interactions are hard to model</li>
+                            <li><em>Acceptance-level testing is hard</em></li>
+                        </ul>
+                        <aside class="notes">
+                            Alice Nodelman talked about Beaker last night - that will be helpful!
+                        </aside>
+                    </div>
+                </section>
+
+                <section class="shout">
+                    <div>
+                        <h2>Go Forth and<br />Write Software</h2>
+                    </div>
+                </section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: false,
+				center: true,
+
+                width: 1280,
+                height: 720,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					// { src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					// { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					// { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+					// { src: 'plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
+					// { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+var last_slide = {
+    pres_started: Date.now(),
+    started: Date.now(),
+    ident: "0,0",
+};
+
+Reveal.addEventListener('slidechanged', function( event ) {
+    var ended = Date.now();
+    var elapsed = (ended - last_slide.started) / 1000;
+
+    console.log(last_slide.ident, "elapsed", elapsed, "seconds; total",
+                (ended - last_slide.pres_started)/1000, "seconds");
+
+    last_slide.started = ended;
+    last_slide.ident = event.indexh + "," + event.indexv;
+});
+
+var width=150; // width of the eyes in pixels
+var colour="#06f"; // colour of the eye - bluey green in this case
+var iris="#000"; //   colour of the iris (normally black);
+
+/***************************\
+*   Moving Eyeballs Effect  *
+*(c)2012-3 mf2fm web-design *
+*  http://www.mf2fm.com/rv  *
+* DON'T EDIT BELOW THIS BOX *
+\***************************/
+var swide=800;
+var shigh=600;
+var sleft=sdown=0;
+
+var glasses, lefteye, righteye;
+
+function draw_eyes() {
+  var i, j, l, m;
+  glasses=document.createElement("div");
+  i=glasses.style;
+  i.position="fixed";
+  i.top="50%";
+  i.left="50%";
+  i.width="1px";
+  i.height="1px";
+  i.overflow="visible";
+  i.zIndex="100";
+  document.body.appendChild(glasses);
+  lefteye=document.createElement("div");
+  righteye=document.createElement("div");
+  i=lefteye.style;
+  j=righteye.style;
+  i.position=j.position="absolute";
+  i.width=j.width="1px";
+  i.height=j.height="1px";
+  i.overflow=j.overflow="visible";
+  i.zIndex=j.zIndex="101";
+  glasses.appendChild(lefteye);
+  glasses.appendChild(righteye);
+  for (m=-1.1; m<2; m+=2.2) for (i=-width; i<width; i++) {
+    l=Math.pow(width*width-i*i, 0.5);
+    j=line(m*width-l, i, 2*l, colour, 0.5);
+    glasses.appendChild(j);
+  }  
+  for (i=-width/2; i<width/2; i++) {
+    l=Math.pow(width*width/4-i*i, 0.5);
+    j=line(-1.1*width-l, i, 2*l, iris, 0.8);
+    lefteye.appendChild(j);
+  }
+  for (i=-width/2; i<width/2; i++) {
+    l=Math.pow(width*width/4-i*i, 0.5);
+    j=line(1.1*width-l, i, 2*l, iris, 0.8);
+    righteye.appendChild(j);
+  }
+  set_width();
+}
+
+function hide_eyes() {
+    if (glasses) {
+        glasses.remove();
+        glasses = null;
+    }
+}
+
+function line(left, top, width, colour, opacity) {
+  var d, s;
+  d=document.createElement("div");
+  s=d.style;
+  s.position="absolute";
+  s.height="1px";
+  s.width=width+"px";
+  s.left=left+"px";
+  s.top=top+"px";
+  s.overflow="hidden";
+  s.backgroundColor=colour;
+  s.pointerEvents="none";
+  s.opacity=opacity;
+  if (navigator.appName=="Microsoft Internet Explorer") s.filter="alpha(opacity="+(opacity*100)+")";
+  return d;
+}
+
+document.onmousemove=mouse;
+function mouse(e) {
+  var x, y, xdiff, ydiff, distn;
+
+  if (!glasses) {
+      return;
+  }
+  y=(e)?e.pageY:event.y;
+  x=(e)?e.pageX:event.x;
+  x-=sleft;
+  y-=sdown;
+
+  xdiff=x+(1.1*width)-(swide*0.5);
+  ydiff=y-shigh/2;
+  distn=Math.pow(xdiff*xdiff+ydiff*ydiff,0.5);
+  if (distn>width/2.5) {
+    xdiff=xdiff*width/distn/2.5;
+    ydiff=ydiff*width/distn/2.5;
+  }
+  lefteye.style.top=ydiff+"px";
+  lefteye.style.left=xdiff+"px";
+
+  xdiff=x-(1.1*width)-(swide*0.5);
+  ydiff=y-shigh/2;
+  distn=Math.pow(xdiff*xdiff+ydiff*ydiff,0.5);
+  if (distn>width/2.5) {
+    xdiff=xdiff*width/distn/2.5;
+    ydiff=ydiff*width/distn/2.5;
+  }
+  righteye.style.top=ydiff+"px";
+  righteye.style.left=xdiff+"px";
+}
+
+function set_width() {
+  var sw_min=999999;
+  var sh_min=999999;
+  if (document.documentElement && document.documentElement.clientWidth) {
+    if (document.documentElement.clientWidth>0) sw_min=document.documentElement.clientWidth;
+    if (document.documentElement.clientHeight>0) sh_min=document.documentElement.clientHeight;
+  }
+  if (typeof(self.innerWidth)!="undefined" && self.innerWidth) {
+    if (self.innerWidth>0 && self.innerWidth<sw_min) sw_min=self.innerWidth;
+    if (self.innerHeight>0 && self.innerHeight<sh_min) sh_min=self.innerHeight;
+  }
+  if (document.body.clientWidth) {
+    if (document.body.clientWidth>0 && document.body.clientWidth<sw_min) sw_min=document.body.clientWidth;
+    if (document.body.clientHeight>0 && document.body.clientHeight<sh_min) sh_min=document.body.clientHeight;
+  }
+  if (sw_min==999999 || sh_min==999999) {
+    sw_min=800;
+    sh_min=600;
+  }
+  swide=sw_min;
+  shigh=sh_min;
+}
+
+Reveal.addEventListener('slidechanged', function( event ) {
+    if (event.currentSlide.className.indexOf('eyes') > -1) {
+        draw_eyes();
+    } else {
+        hide_eyes();
+    }
+});
+
+		</script>
+
+	</body>
+</html>
