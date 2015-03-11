@@ -201,3 +201,6 @@ on the laptop once the USB stick is mounted there.  Reboot, and all is back to n
 
 That was not the most fun I've ever had in 20 hours.  But it was an adventure.
 
+# Translation
+
+Пост доступен на русском  языке via [Восстановление на Softdroid](http://softdroid.net/): [Восстановление информации после разметки HDD](http://softdroid.net/razmetil-zhestkiy-disk-vosstanovlenie-informacii-posle-razmetki-hdd)
