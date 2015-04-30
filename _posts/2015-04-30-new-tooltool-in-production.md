@@ -16,7 +16,7 @@ You probably have a `.mozilla/credentials.cfg` file containing a base64-encoded 
 You'll need to [get a relengapi token](https://api.pub.build.mozilla.org/tokenauth/) that grants at least `tooltool.download.public`, and `tooltool.download.internal` if you need to use non-public files.
 Then just put the resulting token in `.mozilla/credentials.cfg`.
 With that in place, tooltool downloads should work as they always have.
-If not, verify that you're using a mozharness with the changes from [bug 1155238](https://bugzilla.mozilla.org/show_bug.cgi?id=1155238) included; specifically using `https://api.pub.build.mozilla.org` as the URL.
+If not, verify that you're using a mozharness using `https://api.pub.build.mozilla.org` as the URL in [mozharness/mozilla/tooltool.py](https://hg.mozilla.org/build/mozharness/file/06a2bc3e6b42/mozharness/mozilla/tooltool.py#l20).
 
 Note that most files used by most scripts are public, and thus don't technically need any authentication.
 However, the scripts are structured to require a credentials file for all downloads, so you'll need to add the file anyway.
