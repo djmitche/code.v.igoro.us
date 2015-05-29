@@ -1,0 +1,23 @@
+Bookmarks are nice, but they miss the functionality of remote refs.  Hg just
+gives you a bunch of heads on a single branch, with no indication of which is
+the "upstream" head and which are your topic heads.
+
+Although the situation has improved dramatically, and `-f` helps with most
+things, some commands are still smarter than you.  For example, if you have a
+forked history where you don't care about the other forks and want to discard
+them, `hg histedit` will not let you edit history.
+
+Despite wanting hg to be less religious about not losing history, sometimes I
+want a bit of history.  For example, when I'm rebasing a branch to adjust the
+commit history I want to ensure I haven't changed the final result (because
+I'm a grown up and I can make intelligent decisions about editing history,
+thank you very much).  In git, when the rebase is complete I can look up the
+pre-rebase head in the reflog and diff it against the new HEAD.  The `hg
+rebase` operation throws out that data.
+
+Conflict resolution really isn't.  If there are competing modifications to the
+same file -- even if they don't conflict -- you're presented with a three-way
+merge with what seems like an arbitrary set of hunks already merged.  You need
+to scan the whole file for any un-merged hunks, and manually merge them.  If
+you miss one, then your rebase or histedit will finish without that change,
+and you'll wonder why things no longer work.
