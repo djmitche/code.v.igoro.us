@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "HG Workflow"
+title:  "Hg Workflow"
 date:   2015-05-04 12:00:00
 ---
 
