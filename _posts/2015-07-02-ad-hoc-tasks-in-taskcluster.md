@@ -81,3 +81,8 @@ The task description is fairly generic, but it's still useful to include the pay
 
 So there you have it.
 TaskCluster is useful not only for performing massive numbers of continuous-integration tasks, but for running one-off tasks in a reproducible, inspectible, secure fashion.
+
+# More!
+
+Ted has noted that `checkout-sources.sh` is pretty heavy-weight: it checks out gecko, mozharness, and build/tools!
+For many scripts, we can probably do much better with a simpler [single script bootstrap](https://bugzilla.mozilla.org/show_bug.cgi?id=1179893) script.
