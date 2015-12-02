@@ -2,6 +2,7 @@
 layout: post
 title:  "Ad-hoc Tasks in TaskCluster"
 date:   2015-07-02 12:00:00
+categories: ['taskcluster']
 ---
 
 You may have heard of [TaskCluster](https://docs.taskcluster.net), and you may have heard that it's the bees' knees.
