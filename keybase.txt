@@ -1,0 +1,55 @@
+==================================================================
+https://keybase.io/djmitche
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://code.v.igoro.us
+  * I am djmitche (https://keybase.io/djmitche) on keybase.
+  * I have a public key ASBbtG7FfJGFzrRhLqZWlYVdPfGB-aDR9ND4rdV6x57UyQo
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "eldest_kid": "01117ab15f0d2f30a8acb3842378f52b8c8ad8c632026eee057fe5ad694e5823972a0a",
+            "host": "keybase.io",
+            "kid": "01205bb46ec57c9185ceb4612ea65695855d3df181f9a0d1f4d0f8add57ac79ed4c90a",
+            "uid": "dee314dcf50a436c39dd66927fd66f19",
+            "username": "djmitche"
+        },
+        "service": {
+            "hostname": "code.v.igoro.us",
+            "protocol": "http:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "client": {
+        "name": "keybase.io go client",
+        "version": "1.0.6"
+    },
+    "ctime": 1450387417,
+    "expire_in": 504576000,
+    "merkle_root": {
+        "ctime": 1450387154,
+        "hash": "8eeadbcfd2eed5ae7eb63f430f0eae08c83c5e86bb8eb51746aed7e531cd2cf9298f3ce4ecaa05c19650d59ff40b06c8245c7bd00561e4d7de7c32a8aa44446e",
+        "seqno": 335654
+    },
+    "prev": "90610b8b417a7e092ba13bd14b74c9e0bd7c263fc5fad568ca75101d91e87bf0",
+    "seqno": 19,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+g6Rib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgW7RuxXyRhc60YS6mVpWFXT3xgfmg0fTQ+K3Vesee1MkKp3BheWxvYWTFAvZ7ImJvZHkiOnsia2V5Ijp7ImVsZGVzdF9raWQiOiIwMTExN2FiMTVmMGQyZjMwYThhY2IzODQyMzc4ZjUyYjhjOGFkOGM2MzIwMjZlZWUwNTdmZTVhZDY5NGU1ODIzOTcyYTBhIiwiaG9zdCI6ImtleWJhc2UuaW8iLCJraWQiOiIwMTIwNWJiNDZlYzU3YzkxODVjZWI0NjEyZWE2NTY5NTg1NWQzZGYxODFmOWEwZDFmNGQwZjhhZGQ1N2FjNzllZDRjOTBhIiwidWlkIjoiZGVlMzE0ZGNmNTBhNDM2YzM5ZGQ2NjkyN2ZkNjZmMTkiLCJ1c2VybmFtZSI6ImRqbWl0Y2hlIn0sInNlcnZpY2UiOnsiaG9zdG5hbWUiOiJjb2RlLnYuaWdvcm8udXMiLCJwcm90b2NvbCI6Imh0dHA6In0sInR5cGUiOiJ3ZWJfc2VydmljZV9iaW5kaW5nIiwidmVyc2lvbiI6MX0sImNsaWVudCI6eyJuYW1lIjoia2V5YmFzZS5pbyBnbyBjbGllbnQiLCJ2ZXJzaW9uIjoiMS4wLjYifSwiY3RpbWUiOjE0NTAzODc0MTcsImV4cGlyZV9pbiI6NTA0NTc2MDAwLCJtZXJrbGVfcm9vdCI6eyJjdGltZSI6MTQ1MDM4NzE1NCwiaGFzaCI6IjhlZWFkYmNmZDJlZWQ1YWU3ZWI2M2Y0MzBmMGVhZTA4YzgzYzVlODZiYjhlYjUxNzQ2YWVkN2U1MzFjZDJjZjkyOThmM2NlNGVjYWEwNWMxOTY1MGQ1OWZmNDBiMDZjODI0NWM3YmQwMDU2MWU0ZDdkZTdjMzJhOGFhNDQ0NDZlIiwic2Vxbm8iOjMzNTY1NH0sInByZXYiOiI5MDYxMGI4YjQxN2E3ZTA5MmJhMTNiZDE0Yjc0YzllMGJkN2MyNjNmYzVmYWQ1NjhjYTc1MTAxZDkxZTg3YmYwIiwic2Vxbm8iOjE5LCJ0YWciOiJzaWduYXR1cmUifaNzaWfEQPJR3lrp4SGnipfQAWTC9GXvoHBfgdsmYJwIXdNnnfxchN68u0p5ew8rE+39Ya1o0abtMcRKdk7KlAjkWxx1Vw+oc2lnX3R5cGUgo3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/djmitche
+
+==================================================================
+
