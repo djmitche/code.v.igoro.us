@@ -2,7 +2,7 @@ name: Code Vigorous
 port: 8010
 host: 0.0.0.0
 url: http://code.v.igoro.us
-markdown: redcarpet
+markdown: kramdown
 pygments: true
 author: Dustin J. Mitchell
 about: Dustin J. Mitchell
