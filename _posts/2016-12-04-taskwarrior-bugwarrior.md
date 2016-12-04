@@ -65,13 +65,13 @@ In this case, I've excluded bugs assigned to me from the second stanza -- why wo
 I have a nice little `moz` report that I use in TaskWarrior.
 Its output looks like this:
 
-	ID  Pri Urg  Due        Description                                                                                            Tags                           
-	 98 M   7.09 2016-12-04 add a docs page or blog post                                                                           docs                           
-	 58 H   18.2            http://bugzil.la/1309716 Create a framework for displaying team dashboards                             bugzilla land                  
-	 96 H   7.95            http://bugzil.la/1252948 cron.yml for periodic in-tree tasks                                           bugzilla migration             
-	 91 M   6.87            blog about bugwarrior config                                                                           docs plane                     
-	111 M   6.71            guide to microservices, to help folks find the services they need to read the docs for                 docs                           
-	 59 M   6.08            update label-matching in taskcluster/taskgraph/transforms/signing.py to use platform instead           intree plane                   
-	 78 M   6.02            http://bugzil.la/1316877 Allow `test-sets` in `test-platforms.yml`                                     bugzilla intree plane          
-	 92 M   5.97            http://bugzil.la/1302192 Merge android-test and desktop-test into a "test" kind; base on jobs          bugzilla intree migration plane
-	 94 M   5.96            http://bugzil.la/1302804 Ensure that tasks in a taskgraph do not have duplicate gecko.v2 routes        bugzilla intree plane          
+	ID  Pri Urg  Due        Description
+	 98 M   7.09 2016-12-04 add a docs page or blog post
+	 58 H   18.2            http://bugzil.la/1309716 Create a framework for displaying team dashboards
+	 96 H   7.95            http://bugzil.la/1252948 cron.yml for periodic in-tree tasks
+	 91 M   6.87            blog about bugwarrior config
+	111 M   6.71            guide to microservices, to help folks find the services they need to read th
+	 59 M   6.08            update label-matching in taskcluster/taskgraph/transforms/signing.py to use
+	 78 M   6.02            http://bugzil.la/1316877 Allow `test-sets` in `test-platforms.yml`
+	 92 M   5.97            http://bugzil.la/1302192 Merge android-test and desktop-test into a "test" k
+	 94 M   5.96            http://bugzil.la/1302804 Ensure that tasks in a taskgraph do not have duplic
