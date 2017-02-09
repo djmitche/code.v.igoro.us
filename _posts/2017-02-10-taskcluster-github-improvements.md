@@ -22,7 +22,7 @@ Second, we have re-deployed the service as an
 [has
 developed](https://medium.com/@bugzeeeeee/taskcluster-github-bulletin-d827313686b7).
 This makes the set-up process much easier -- just go to
-https://github.com/integration/taskcluster and click "Install".  No messing
+[the integration page](https://github.com/integration/taskcluster) and click "Install".  No messing
 with web hooks, adding users to teams, etc.
 
 The integration gives users a great deal more control over our access to
