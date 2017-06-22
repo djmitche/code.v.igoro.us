@@ -13,9 +13,9 @@ A few years ago, we introduced a [tutorial](https://docs.taskcluster.net/tutoria
 
 Daniele Procida gave [a great talk at PyCon 2017](http://pyvideo.org/pycon-us-2017/how-documentation-works-and-how-to-make-it-work-for-your-project.html) about structuring documentation, which came down to this diagram:
 
-| Tutorials   | How-To Guides |
-|-------------|---------------|
-| Discussions | Reference     |
+     Tutorials   | How-To Guides 
+    -------------|---------------
+     Discussions | Reference     
 
 This shows four types of documentation.
 The top is practical, while the bottom is more theoretical.
