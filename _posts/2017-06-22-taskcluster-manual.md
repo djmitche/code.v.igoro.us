@@ -28,5 +28,6 @@ Instead, it was a collection of documents that didn't fit anywhere else.
 
 Over the last few months, we have refashioned the [manual](https://docs.taskcluster.net/manual) to fit this form.
 It now starts out with a gentle but thorough description of tasks (the core concept of Taskcluster), then explains how tasks are executed before delving into the design of the system.
+At the end, it includes a bunch of use-cases with advice on how to solve them, filling the "how-to guides" requirement.
 
 If you've been looking to learn more about Taskcluster, check it out!
