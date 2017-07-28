@@ -104,10 +104,8 @@ possibly affect any platform but Android.
 
 The tagging is done using familiar clauses in `moz.build` files:
 
-```
-with Files('mobile/android/**'):
-    AFFECTS_TASKS += ['android']
-```
+    with Files('mobile/android/**'):
+        AFFECTS_TASKS += ['android']
 
 (note that this syntax is illustrative; the details are not yet decided)
 
@@ -121,11 +119,9 @@ Task configuration can contain an [optimization
 element](https://hg.mozilla.org/mozilla-central/file/36f95aeb4c77/taskcluster/taskgraph/transforms/task.py#l138)
 specifying a set of tags containing this task:
 
-```
     label: android-test-android-4.3-arm7-api-15/debug-reftest-1
     optimizations:
         - [skip-unless-affects, [android, reftests]]
-```
 
 Meaning, skip unless the changes affect either `android` or `reftests`.  In
 most cases, this value would be calculated by the
