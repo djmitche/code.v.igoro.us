@@ -2,6 +2,7 @@
 title: Taskgraph Optimization
 layout: post
 date:   2017-07-27 19:00:00
+categories: [mozilla,taskcluster]
 ---
 
 For every push to a Gecko repository, and for periodic things like nightlies,
