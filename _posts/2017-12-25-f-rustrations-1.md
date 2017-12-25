@@ -32,7 +32,7 @@ As part of learning about Tokio, Futures, and so on, I elected to build a chat a
 This example uses `Stream::and_then` to map requests to responses, which makes sense for a strict request/response protocol, but does not make sense for a chat protocol.
 It should be possible to send or receive a message at any time in a chat protocol, so I modified the example to use `send` to send one message at a time:
 
-```rust
+```
     let server = connections.for_each(move |(socket, _peer_addr)| {
         let (writer, _reader) = socket.framed(LineCodec).split();
 
@@ -51,7 +51,7 @@ In fact, `send` moves `self`, so `writer.send("Welcome to Chat".to_string())` wo
 
 Based on how I would design a chat app in Python, JavaScript, or any other language, I chose to make a struct to represent a connected user in the chat:
 
-```rust
+```
 pub struct ChatConnection {
     reader: SplitStream<Framed<TcpStream, LineCodec>>,
     writer: SplitSink<Framed<TcpStream, LineCodec>>,
@@ -110,7 +110,7 @@ This is in keeping with the stream/sink model (channels are just another form of
 I feel like this solution is "cheating": the language makes it difficult to send messages on the channel it provides, so wrap it in anohter channel with better semantics.
 Even the code to connect those two channels is, to my eye, obfuscating this issue:
 
-```rust
+```
         let socket_writer = rx.fold(writer, |writer, msg| {
             let amt = io::write_all(writer, msg.into_bytes());
             let amt = amt.map(|(writer, _)| writer);
