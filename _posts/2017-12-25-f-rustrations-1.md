@@ -32,7 +32,7 @@ As part of learning about Tokio, Futures, and so on, I elected to build a chat a
 This example uses `Stream::and_then` to map requests to responses, which makes sense for a strict request/response protocol, but does not make sense for a chat protocol.
 It should be possible to send or receive a message at any time in a chat protocol, so I modified the example to use `send` to send one message at a time:
 
-```
+<pre>
     let server = connections.for_each(move |(socket, _peer_addr)| {
         let (writer, _reader) = socket.framed(LineCodec).split();
 
@@ -43,7 +43,7 @@ It should be possible to send or receive a message at any time in a chat protoco
 
         Ok(())
     });
-```
+</pre>
 
 This bit works fine: the resulting server greets each user, then drops the socket and disconnects them, as expected.
 Note the threading of the writer: the first `writer.send` is using the writer returned from `split`, while the second is using the result of the Future from the first (I have unecessarily called it `writer2` here for clarity).
@@ -51,7 +51,7 @@ In fact, `send` moves `self`, so `writer.send("Welcome to Chat".to_string())` wo
 
 Based on how I would design a chat app in Python, JavaScript, or any other language, I chose to make a struct to represent a connected user in the chat:
 
-```
+<pre>
 pub struct ChatConnection {
     reader: SplitStream<Framed<TcpStream, LineCodec>>,
     writer: SplitSink<Framed<TcpStream, LineCodec>>,
@@ -74,19 +74,19 @@ impl ChatConnection {
             .then(|_| Ok(())))
     }   
 }
-```
+</pre>
 
 When a new connection arrives, other code allocates a new `ChatConnection` and calls its `run` method, spawning a task into the event loop with the resulting future.
 
 This doesn't work, though:
 
-```
+<pre>
 error[E0507]: cannot move out of borrowed content
   --> src/main.rs:82:18
    |
    |         Box::new(self.writer
    |                  ^^^^ cannot move out of borrowed content
-```
+</pre>
 
 There's sense in this: the language is preventing multiple simultaneous sends.
 If it allowed `self.writer` to be accessible to other code while the Future was not complete, then that other code could potentially, unsafely, call `send` again.
@@ -110,13 +110,13 @@ This is in keeping with the stream/sink model (channels are just another form of
 I feel like this solution is "cheating": the language makes it difficult to send messages on the channel it provides, so wrap it in anohter channel with better semantics.
 Even the code to connect those two channels is, to my eye, obfuscating this issue:
 
-```
+<pre>
         let socket_writer = rx.fold(writer, |writer, msg| {
             let amt = io::write_all(writer, msg.into_bytes());
             let amt = amt.map(|(writer, _)| writer);
             amt.map_err(|_| ())
         });
-```
+</pre>
 
 That `rx.fold` function is doing a lot of work, but there is nary a comment to draw attention to this fact.
 Those accustomed to functional programming, and familiar with Rust's use of the term "fold" for what most languages call "reduce", might figure out what's going on more quickly.
