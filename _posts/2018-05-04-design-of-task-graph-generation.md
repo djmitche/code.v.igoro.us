@@ -131,7 +131,7 @@ There are several other "descriptions", but these give the general idea.
 The final effect is that a relatively concise, readable build description like
 this:
 
-```
+<pre>
 linux64/debug:
     description: "Linux64 Debug"
     index:
@@ -159,7 +159,7 @@ linux64/debug:
         - linux64-gcc
         - linux64-sccache
         - linux64-rust
-```
+</pre>
 
 Can turn into a much larger task definition like
 [this](https://queue.taskcluster.net/v1/task/OtYCNHmDSreSjvT8PVZWwA).
