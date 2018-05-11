@@ -8,7 +8,7 @@ categories: [mozilla,taskcluster]
 There's an old story about Charles Proteus Steinmetz, a famous GE engineer in the early 20th century.
 He was called to one of Henry Ford's factories, where a huge generator was having problems that the local engineers could not solve.
 After some investigation and calculation, Steinmetz made a mark on the shell of the generator and told the factory engineers to open that spot and replace the windings there.
-He later sent a bill for his services to Henry Ford: $1,000.
+He later sent a bill for his services to Henry Ford: $10,000.
 Ford demanded an itemized bill -- after all, Steinmetz had only made a single mark on the generator.
 The bill came back: "Making chalk mark on generator: $1. Knowing where to make mark: $9,999."
 
