@@ -129,6 +129,12 @@ solved this issue by special-casing the rootUrl `https://taskcluster.net` to
 generate the old-style URLs. Once we have migrated all users out of the current
 installation, we will remove that special-case.
 
+The single root domain is implemented using routing features supplied by
+Kubernetes *Ingress* resources, based on an HTTP proxy. This has the
+side-effect that when one microservice contacts another (for example,
+taskcluster-hooks calling `queue.createTask`), it does so via the same Ingress,
+a more circuitous journey than is strictly required.
+
 ### Data Migrations
 
 The first few deployments of Taskcluster will not require great support for
@@ -223,8 +229,14 @@ we have yet to settle on a good solution for this issue.
 
 Mozilla is Open by Design, and so is Taskcluster: with the exception of data
 that must remain private (passwords, encryption keys, and material covered by
-other companies' NDAs), everything is publicly accessible. We take advantage of
-that by reading data without any authentication. For example, the [action
+other companies' NDAs), everything is publicly accessible. While Taskcluster
+does have a sophisticated and battle-tested authorization system based on
+[*scopes*](https://docs.taskcluster.net/reference/platform/taskcluster-auth/docs/scopes),
+most read-only API calls do not require any scopes and thus can be made with a
+simple, un-authenticated HTTP request.
+
+We take advantage of the public availability of most data by passing around
+simple, authentication-free URLs. For example, the [action
 specification](https://docs.taskcluster.net/manual/using/actions/spec)
 describes downloading a decision task's `public/action.json` artifact. Nowhere
 does it mention providing any credentials to fetch the decision task, nor to
