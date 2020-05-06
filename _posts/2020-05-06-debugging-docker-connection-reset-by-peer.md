@@ -7,14 +7,14 @@ categories: [mozilla, taskcluster]
 
 (this post is co-written with [@imbstack](https://github.com/imbstack) and cross-posted on his blog)
 
-I. Symptoms
+# Symptoms
 
 At the end of January this year the Taskcluster team was alerted to [networking issues in a user's tasks](https://github.com/web-platform-tests/wpt/issues/21529). The first
 report involved `ETIMEDOUT` but later on it became clear that the more frequent issue was involving `ECONNRESET` in the middle of downloading artifacts necessary to
 run the tests in the tasks. It seemed it was only occurring on downloads from Google (https://dl.google.com) on our workers running in GCP, and only with relatively large artifacts. This led
 us to initially blame some bit of infrastructure outside of Taskcluster but eventually we found the issue to be with how Docker was handling networking on our worker machines.
 
-II. Investigation
+# Investigation
 
 The initial stages of the investigation were focused on exploring possible causes of the error and on finding a way to reproduce the error.
 
@@ -117,7 +117,7 @@ Our best guess here is that some network intermediary has added a slight delay t
 But since the RTT on this connection is so short, that delay is relatively huge and puts the delayed packets outside of the window where conntrack is willing to accept them.
 That helps explain why other downloads, from hosts outside of the Google infrastructure, do not see this issue: either they do not traverse the intermediary delaying these packets, or the RTT is long enough that a few ms is not enough to result in packets being marked INVALID.
 
-III. Resolution
+# Resolution
 
 After we posted these results in the issue, our users realized these symptoms looked a lot like [a Moby libnetwork bug](https://github.com/moby/libnetwork/issues/1090). We adopted a workaround
 mentioned there where we use conntrack to drop invalid packets in iptables rather than trigger RSTs
@@ -129,7 +129,7 @@ iptables -I INPUT -m conntrack --ctstate INVALID -j DROP
 The drawbacks of that approach listed in the bug are acceptable for our uses. After baking a new machine images we tried to reproduce the issue at scale as we had done during the debugging
 of this issue and were not able to. We updated all of our worker pools to use this image the next day and it seems like we're now in the clear.
 
-IV. Security Implications
+# Security Implications
 
 As we uncovered this behavior, there was some concern among the team that this represented a security issue.
 When conntrack marks a packet as INVALID and it is handled on the host, it's possible that the same port on the host *is* in use, and the packet could be treated as part of that connection.
@@ -143,6 +143,6 @@ This is probably only an issue if the attacker is on the same network as the doc
 
 At any rate, this issue appears to be fixed in more recent distributions.
 
-V. Thanks
+# Thanks
 
 @hexcles, @djmitche, @imbstack, @stephenmcgruer
