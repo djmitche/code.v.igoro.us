@@ -5,7 +5,7 @@ date:   2020-05-06 21:00:00
 categories: [mozilla, taskcluster]
 ---
 
-(this post is co-written with [@imbstack](https://github.com/imbstack) and cross-posted on his blog)
+(this post is co-written with [@imbstack](https://github.com/imbstack) and cross-posted on [his blog](https://imbstack.com/2020/05/03/debugging-docker-connection-resets.html))
 
 # Symptoms
 
